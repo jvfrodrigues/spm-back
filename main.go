@@ -4,9 +4,7 @@
 // @BasePath /
 package main
 
-import (
-	"simple-password-manager/api"
-)
+import "github.com/jvfrodrigues/simple-password-manager-back/api"
 
 func main() {
 	api.NewServer()

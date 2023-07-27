@@ -1,10 +1,9 @@
 package api
 
 import (
-	"simple-password-manager/config"
-
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+	"github.com/jvfrodrigues/simple-password-manager-back/config"
 )
 
 type Server struct {
