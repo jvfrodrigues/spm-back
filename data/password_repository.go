@@ -16,6 +16,10 @@ func NewPasswordRepository() *PasswordRepository {
 	}
 }
 
+func (pr *PasswordRepository) FindAll() ([]domain.Password, error) {
+	return pr.passwords, nil
+}
+
 func (pr *PasswordRepository) Create(password domain.Password) error {
 	pr.passwords = append(pr.passwords, password)
 	return nil
