@@ -30,3 +30,12 @@ func (pc *PasswordController) CreatePasswordEntry(ctx *gin.Context) {
 
 	ctx.Status(http.StatusNoContent)
 }
+
+func (pc *PasswordController) GetAll(ctx *gin.Context) {
+	passwords, err := pc.repository.FindAll()
+	if err != nil {
+		ctx.JSON(http.StatusBadRequest, "Error getting passwords")
+		return
+	}
+	ctx.JSON(http.StatusOK, passwords)
+}
