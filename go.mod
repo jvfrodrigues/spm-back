@@ -1,4 +1,4 @@
-module simple-password-manager
+module github.com/jvfrodrigues/simple-password-manager-back
 
 go 1.19
 

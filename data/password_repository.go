@@ -1,8 +1,8 @@
 package data
 
 import (
-	"simple-password-manager/domain"
-
+	"github.com/jvfrodrigues/simple-password-manager-back/domain"
+	dtos "github.com/jvfrodrigues/simple-password-manager-back/domain/dtos"
 	"golang.org/x/exp/slices"
 )
 
@@ -20,8 +20,9 @@ func (pr *PasswordRepository) FindAll() ([]domain.Password, error) {
 	return pr.passwords, nil
 }
 
-func (pr *PasswordRepository) Create(password domain.Password) error {
-	pr.passwords = append(pr.passwords, password)
+func (pr *PasswordRepository) Create(password dtos.CreatePasswordRequest) error {
+	domain.NewPassword(password.Url, password.Name, password.Username, password.Password)
+	pr.passwords = append(pr.passwords)
 	return nil
 }
 
