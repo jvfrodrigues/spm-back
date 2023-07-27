@@ -4,8 +4,16 @@
 // @BasePath /
 package main
 
-import "github.com/jvfrodrigues/simple-password-manager-back/api"
+import (
+	"fmt"
+
+	"github.com/jvfrodrigues/simple-password-manager-back/api"
+	"github.com/jvfrodrigues/simple-password-manager-back/config"
+)
 
 func main() {
-	api.NewServer()
+	serverPort := config.GetString("HTTP_PORT")
+	server := api.NewServer()
+	fmt.Println("Server starting at localhost:" + serverPort)
+	server.StartServer(serverPort)
 }

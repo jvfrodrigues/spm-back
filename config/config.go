@@ -3,7 +3,8 @@ package config
 import "os"
 
 var config = map[string]string{
-	"API_MODE": "debug",
+	"HTTP_PORT": "8080",
+	"API_MODE":  "debug",
 }
 
 func GetString(k string) string {
