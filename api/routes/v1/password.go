@@ -11,4 +11,6 @@ func SetupPasswordRoutes(router *gin.Engine) {
 	controller := controllers.NewPasswordController()
 	router.GET(basicPasswordRoute, controller.GetAll)
 	router.POST(basicPasswordRoute, controller.CreatePasswordEntry)
+	router.PUT(basicPasswordRoute+"/:id", controller.EditPasswordEntry)
+	router.DELETE(basicPasswordRoute+"/:id", controller.DeletePasswordEntry)
 }

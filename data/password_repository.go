@@ -26,9 +26,12 @@ func (pr *PasswordRepository) Create(password dtos.CreatePasswordRequest) error 
 	return nil
 }
 
-func (pr *PasswordRepository) Update(password domain.Password) error {
-	idx := slices.IndexFunc(pr.passwords, func(p domain.Password) bool { return p.Id == password.Id })
-	pr.passwords[idx] = password
+func (pr *PasswordRepository) Update(id string, password dtos.CreatePasswordRequest) error {
+	idx := slices.IndexFunc(pr.passwords, func(p domain.Password) bool { return p.Id == id })
+	pr.passwords[idx].Name = password.Name
+	pr.passwords[idx].Url = password.Url
+	pr.passwords[idx].Username = password.Username
+	pr.passwords[idx].Password = password.Password
 	return nil
 }
 
