@@ -21,8 +21,8 @@ func (pr *PasswordRepository) FindAll() ([]domain.Password, error) {
 }
 
 func (pr *PasswordRepository) Create(password dtos.CreatePasswordRequest) error {
-	domain.NewPassword(password.Url, password.Name, password.Username, password.Password)
-	pr.passwords = append(pr.passwords)
+	newPassword := domain.NewPassword(password.Url, password.Name, password.Username, password.Password)
+	pr.passwords = append(pr.passwords, *newPassword)
 	return nil
 }
 
