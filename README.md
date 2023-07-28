@@ -12,12 +12,20 @@ I've also created a Dockerfile to run the project.
 Locally:
 
 ```bash
+# download deps
+go mod download && go mod verify
+
+# run
 go run ./main.go
 ```
 
 Docker:
 
 ```bash
+# build
+docker build -t spm-back .
+
+# run
 docker run -p 8080:8080 spm-back
 ```
 
